@@ -1,3 +1,6 @@
 ya_token.txt
 vk_token.txt
 test.py
+pycache/
+env/
+.vscode/
