@@ -3,7 +3,7 @@ from backup import *
 
 vk_id = input('Введите id Вконтакте:') #Official
 
-# Функция записи информации в файл
+# Запись информации в файл
 response = {}
 response["response"] = backup(vk_id)
 
