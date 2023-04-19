@@ -22,7 +22,7 @@ class VkUserPhoto:
         try:
             items = requests.get(getphoto_url, params={**self.params, **getphoto_params}).json()['response']['items']
             for item in items:
-                file_name = str(item['likes']['count'])+'_'+str(item['post_id'])+'.png'
+                file_name = str(item['likes']['count'])+'_'+str(item['date'])+'.png'
                 max_size = max(item['sizes'], key=lambda x: x['width'] * x['height'])
                 photo_url = max_size['url']
                 photos.append({"file_name": file_name, "url": photo_url, "size": max_size['type']})
