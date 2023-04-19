@@ -3,6 +3,7 @@ from pprint import pprint
 import json
 import time
 from progress.bar import IncrementalBar
+from tqdm import tqdm
 
 # Создаем переменную с токеном ВКонтакте 
 with open('vk_token.txt', 'r') as _vk:

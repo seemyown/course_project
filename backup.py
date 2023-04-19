@@ -8,18 +8,14 @@ def backup(user, count = 5):
     photos = vk_photo.getphoto(user, count)
     ya_upload = YandexDisk(ya_token)
     result = [] 
-    bar = IncrementalBar("Загрузка на Я.Диск", max = count)
     if photos != 'error':
         try:
             print("Начало загрузки на Я.Диск")
-            for photo in photos:
+            for photo in tqdm(photos):
                 upload = ya_upload.upload(photo['url'], photo['file_name'])
                 if upload == "upload comlete":
                     result.append({'file_name':photo['file_name'],'size': photo['size']})
-
-                bar.next()
                 time.sleep(1)
-            bar.finish()
             print("Фотографии загружены на Я.Диск")
             return result
         except:
